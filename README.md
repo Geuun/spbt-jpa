@@ -6,7 +6,7 @@
 
 - REST API
   - EndPoints
-    - <geun.me:8888/api/v1/books>
+    - [GET] : http://geun.me:8888/api/v1/books
 
 </div>
 </details>
