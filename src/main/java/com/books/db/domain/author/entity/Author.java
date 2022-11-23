@@ -13,7 +13,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Author {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String name;
 }
