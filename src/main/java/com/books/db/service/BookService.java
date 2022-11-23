@@ -1,6 +1,5 @@
 package com.books.db.service;
 
-import com.books.db.domain.author.entity.Author;
 import com.books.db.domain.book.dto.BookResponse;
 import com.books.db.domain.book.entity.Book;
 import com.books.db.repository.AuthorRepository;
@@ -10,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

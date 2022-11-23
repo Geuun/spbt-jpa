@@ -1,5 +1,6 @@
 package com.books.db.domain.book.entity;
 
+import com.books.db.domain.book.entity.Book;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,17 +11,12 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class Author {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "author_id")
-    private Author author;
-
-    @OneToOne
-    @JoinColumn(name = "publisher_id")
-    private Publisher publisher;
 }

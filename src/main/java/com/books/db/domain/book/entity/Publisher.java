@@ -10,17 +10,10 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book {
+public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "author_id")
-    private Author author;
-
-    @OneToOne
-    @JoinColumn(name = "publisher_id")
-    private Publisher publisher;
+    public String name;
+    public String address;
 }
