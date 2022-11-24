@@ -33,21 +33,14 @@ public class ReviewServiece {
                 .build();
         Review savedReview = reviewRepository.save(review);
         return new ReviewResponse(savedReview.getTitle(), savedReview.getUserName(),
-                savedReview.getContent(), "리뷰 등록이 성공했습니다.");
+                savedReview.getContent(), "리뷰 등록에 성공했습니다.");
     }
 
     public ReviewResponse findByReviewId(Long id) {
-        Optional<Review> optionalReview = reviewRepository.findById(id);
-        if (!optionalReview.isEmpty()) {
-            Review review = optionalReview.get();
-            ReviewResponse reviewResponse = new ReviewResponse(review.getTitle(), review.getUserName(),
-                    review.getContent(), String.format("id: %d 의 Review를 찾았습니다.", id));
-            return reviewResponse;
-        } else {
-            ReviewResponse reviewResponse = new ReviewResponse(null, null,
-                    null, String.format("id: %d 의 Review를 찾지못했습니다. \n 다시 시도해주세요.", id));
-            return reviewResponse;
-        }
+        Review review = reviewRepository.findById(id).orElseThrow(() -> new RuntimeException("해당 리뷰를 찾을 수 없습니다."));
+        ReviewResponse reviewResponse = new ReviewResponse(review.getTitle(), review.getUserName(),
+                review.getContent(), String.format("id: %d 의 Review를 찾았습니다.", id));
+        return reviewResponse;
     }
 
     public List<ReviewResponse> getReviewByHospitalId(Integer hospitalId) {

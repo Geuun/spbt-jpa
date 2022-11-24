@@ -1,11 +1,14 @@
 package com.books.db.controller;
 
 import com.books.db.domain.hospital.dto.HospitalResponse;
+import com.books.db.domain.hospital.dto.ReviewResponse;
 import com.books.db.service.HospitalService;
 import com.books.db.service.ReviewServiece;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -29,4 +32,10 @@ public class HospitalRestController {
                 .body(hospitalResponse);
     }
 
+    @GetMapping("/{id}/reviews") // id값의 병원 리뷰만 확인
+    public ResponseEntity<List<ReviewResponse>> getReviewByHospitalId(@PathVariable Integer id) {
+        return ResponseEntity
+                .ok()
+                .body(reviewServiece.getReviewByHospitalId(id));
+    }
 }

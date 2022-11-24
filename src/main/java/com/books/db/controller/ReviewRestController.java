@@ -14,11 +14,9 @@ import java.util.List;
 public class ReviewRestController {
 
     private final ReviewServiece reviewServiece;
-    private final HospitalService hospitalService;
 
-    public ReviewRestController(ReviewServiece reviewServiece, HospitalService hospitalService) {
+    public ReviewRestController(ReviewServiece reviewServiece) {
         this.reviewServiece = reviewServiece;
-        this.hospitalService = hospitalService;
     }
 
     @GetMapping("/{id}") // 댓글 id값으로 리뷰 확인
@@ -33,12 +31,5 @@ public class ReviewRestController {
         return ResponseEntity
                 .ok()
                 .body(reviewServiece.addReview(reviewRequest));
-    }
-
-    @GetMapping("/{id}/reviews") // id값의 병원 리뷰만 확인
-    public ResponseEntity<List<ReviewResponse>> getReviewByHospitalId(@PathVariable Integer id) {
-        return ResponseEntity
-                .ok()
-                .body(reviewServiece.getReviewByHospitalId(id));
     }
 }
