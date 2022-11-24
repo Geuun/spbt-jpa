@@ -1,8 +1,6 @@
 package com.books.db.controller;
 
 import com.books.db.domain.hospital.dto.HospitalResponse;
-import com.books.db.domain.hospital.dto.ReviewRequest;
-import com.books.db.domain.hospital.dto.ReviewResponse;
 import com.books.db.service.HospitalService;
 import com.books.db.service.ReviewServiece;
 import lombok.extern.slf4j.Slf4j;
@@ -31,10 +29,4 @@ public class HospitalRestController {
                 .body(hospitalResponse);
     }
 
-    @PostMapping("/{id}/reviews")
-    public ResponseEntity<ReviewResponse> addReview(@RequestBody ReviewRequest reviewRequest) {
-        return ResponseEntity
-                .ok()
-                .body(reviewServiece.addReview(reviewRequest));
-    }
 }
