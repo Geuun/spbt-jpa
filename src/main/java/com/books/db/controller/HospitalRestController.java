@@ -1,9 +1,12 @@
 package com.books.db.controller;
 
+import com.books.db.domain.hospital.dto.HospitalResponse;
 import com.books.db.service.HospitalService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/hospitals")
 public class HospitalRestController {
@@ -14,5 +17,12 @@ public class HospitalRestController {
         this.hospitalService = hospitalService;
     }
 
-
+    @GetMapping("/{id}")
+    public ResponseEntity<HospitalResponse> getHospital(@PathVariable Integer id) {
+        HospitalResponse hospitalResponse = hospitalService.getHospitalResponse(id);
+        log.info(hospitalResponse.toString());
+        return ResponseEntity
+                .ok()
+                .body(hospitalResponse);
+    }
 }
