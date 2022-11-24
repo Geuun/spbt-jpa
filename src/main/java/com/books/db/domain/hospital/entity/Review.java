@@ -1,6 +1,7 @@
 package com.books.db.domain.hospital.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "hospital_review")
@@ -23,11 +25,4 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
-
-    public Review(Hospital hospital, String reviewTitle, String reviewAuthor, String reviewContent) {
-        this.hospital = hospital;
-        this.title = reviewTitle;
-        this.userName = reviewAuthor;
-        this.content = reviewContent;
-    }
 }
