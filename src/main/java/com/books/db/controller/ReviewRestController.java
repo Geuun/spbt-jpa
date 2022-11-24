@@ -34,4 +34,11 @@ public class ReviewRestController {
                 .ok()
                 .body(reviewServiece.addReview(reviewRequest));
     }
+
+    @GetMapping("/{id}/reviews") // id값의 병원 리뷰만 확인
+    public ResponseEntity<List<ReviewResponse>> getReviewByHospitalId(@PathVariable Integer id) {
+        return ResponseEntity
+                .ok()
+                .body(reviewServiece.getReviewByHospitalId(id));
+    }
 }

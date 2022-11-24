@@ -49,4 +49,11 @@ public class ReviewServiece {
             return reviewResponse;
         }
     }
+
+    public List<ReviewResponse> getReviewByHospitalId(Integer hospitalId) {
+        Hospital hospital = hospitalRepository.findById(hospitalId).orElseThrow(() -> new RuntimeException("해당 병원을 찾을 수 없습니다."));
+        List<Review> reviews = reviewRepository.findByHospital(hospital);
+        List<ReviewResponse> reviewResponses = reviews.stream().map(ReviewResponse::new).collect(Collectors.toList());
+        return reviewResponses;
+    }
 }
