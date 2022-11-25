@@ -1,6 +1,7 @@
 package com.spbt.jpa.controller;
 
 import com.spbt.jpa.domain.hospital.dto.HospitalResponse;
+import com.spbt.jpa.domain.hospital.dto.HospitalTotalCountResponse;
 import com.spbt.jpa.domain.hospital.dto.ReviewResponse;
 import com.spbt.jpa.service.HospitalService;
 import com.spbt.jpa.service.ReviewServiece;
@@ -21,6 +22,13 @@ public class HospitalRestController {
     public HospitalRestController(HospitalService hospitalService, ReviewServiece reviewServiece) {
         this.hospitalService = hospitalService;
         this.reviewServiece = reviewServiece;
+    }
+
+    @GetMapping("/totalcounts")
+    public ResponseEntity<HospitalTotalCountResponse> getHospitalTotalCount() {
+        return ResponseEntity
+                .ok()
+                .body(hospitalService.getHospitalTotalCount());
     }
 
     @GetMapping("/{id}")
