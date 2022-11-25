@@ -1,6 +1,7 @@
 package com.spbt.jpa.service;
 
 import com.spbt.jpa.domain.hospital.dto.HospitalResponse;
+import com.spbt.jpa.domain.hospital.dto.HospitalTotalCountResponse;
 import com.spbt.jpa.domain.hospital.entity.Hospital;
 import com.spbt.jpa.repository.HospitalRepository;
 import org.springframework.stereotype.Service;
@@ -24,4 +25,9 @@ public class HospitalService {
     }
 
 
+    public HospitalTotalCountResponse getHospitalTotalCount() {
+        Long hospitalTotalcount = hospitalRepository.countBy();
+        HospitalTotalCountResponse hospitalTotalCountResponse = new HospitalTotalCountResponse(hospitalTotalcount);
+        return hospitalTotalCountResponse;
+    }
 }
