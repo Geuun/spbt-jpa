@@ -9,26 +9,30 @@
 <details>
 <summary>[BackEnd] 도서목록 조회 기능 RESTAPI</summary>
 <div>
-> - REST API
->  - EndPoints
->    - [GET]
->      - [전체 조회] : http://geun.me:8888/api/v1/books
->      - [책 Id값으로 조회] : http://http://geun.me:8888/api/v1/books/{id}
+
+ - REST API
+  - EndPoints
+    - [GET]
+      - [전체 조회] : http://geun.me:8888/api/v1/books
+      - [책 Id값으로 조회] : http://http://geun.me:8888/api/v1/books/{id}
+
 </div>
 </details>
 
 <details>
 <summary>[BackEnd] 병원 및 리뷰 RESTAPI</summary>
 <div>
-> - REST API
->  - EndPoints
->    - [GET]
->      - [{id} 병원의 정보] : http://geun.me:8888/api/v1/hospitals/{id}
->      - [{id} 병원의 리뷰 조회] : http://geun.me:8888/api/v1/hospitals/reviews
->      - [{id} 리뷰 조회] : http://geun.me:8888/api/v1/hospitals/reviews/{id}
->      - [총 병원 등록 수 조회] : http://geun.me:8888/api/v1/hospitals/totalcounts
->    - [POST]
->       - [새 리뷰 등록] : http://geun.me:8888/api/v1/reviews/{id}
+
+- REST API
+  - EndPoints
+    - [GET]
+      - [{id} 병원의 정보] : http://geun.me:8888/api/v1/hospitals/{id}
+      - [{id} 병원의 리뷰 조회] : http://geun.me:8888/api/v1/hospitals/reviews
+      - [{id} 리뷰 조회] : http://geun.me:8888/api/v1/hospitals/reviews/{id}
+      - [총 병원 등록 수 조회] : http://geun.me:8888/api/v1/hospitals/totalcounts
+    - [POST]
+       - [새 리뷰 등록] : http://geun.me:8888/api/v1/reviews/{id}
+
 </div>
 </details>
 
